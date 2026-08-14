@@ -1,0 +1,234 @@
+:root {
+  --teal-primary: #2bb3a3;
+  --teal-dark: #15897d;
+  --teal-light: #e8f8f6;
+  --yellow-secondary: #ffc107;
+  --text-main: #1f2937;
+  --text-soft: #4b5563;
+  --white: #ffffff;
+  --light-bg: #f7fbfa;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.doctors-page {
+  min-height: 100vh;
+  background: var(--light-bg);
+  font-family: Inter, Poppins, "Segoe UI", sans-serif;
+}
+
+.doctors-page * {
+  font-family: Inter, Poppins, "Segoe UI", sans-serif;
+}
+
+.doctors-main {
+  min-height: calc(100vh - 200px);
+}
+
+.doctors-hero {
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  height: 320px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.doctors-hero__content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  padding: 0 28px;
+}
+
+.doctors-hero__title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--white);
+  font-weight: 800;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.doctors-hero__subtitle {
+  font-size: 1.15rem;
+  color: #e5e7eb;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.doctors-grid {
+  padding: 60px 28px;
+}
+
+.doctors-grid__inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.doctor-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.doctor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.doctor-card__image-wrap {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.doctor-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.doctor-card:hover .doctor-card__image {
+  transform: scale(1.05);
+}
+
+.doctor-card__status {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+}
+
+.doctor-card__status--available {
+  background: rgba(43, 179, 163, 0.9);
+  color: var(--white);
+}
+
+.doctor-card__status--unavailable {
+  background: rgba(107, 114, 128, 0.9);
+  color: var(--white);
+}
+
+.doctor-card__content {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.doctor-card__name {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.doctor-card__specialization {
+  margin: 0;
+  color: var(--teal-primary);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.doctor-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(43, 179, 163, 0.15);
+  border-bottom: 1px solid rgba(43, 179, 163, 0.15);
+}
+
+.doctor-card__detail {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.doctor-card__icon {
+  font-size: 1.1rem;
+}
+
+.doctor-card__book-btn {
+  margin-top: auto;
+  width: 100%;
+  padding: 14px;
+  background: var(--teal-primary);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.doctor-card__book-btn:hover:not(.doctor-card__book-btn--disabled) {
+  background: var(--teal-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(43, 179, 163, 0.3);
+}
+
+.doctor-card__book-btn--disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (max-width: 1024px) {
+  .doctors-hero {
+    height: 320px;
+    padding: 0;
+  }
+
+  .doctors-grid {
+    padding: 40px 20px;
+  }
+
+  .doctors-grid__inner {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 680px) {
+  .doctors-hero {
+    height: 320px;
+    padding: 0;
+  }
+
+  .doctors-hero__title {
+    font-size: 2rem;
+  }
+
+  .doctors-grid {
+    padding: 30px 14px;
+  }
+
+  .doctors-grid__inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
